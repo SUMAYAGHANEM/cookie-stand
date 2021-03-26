@@ -5,15 +5,18 @@
     <link rel="stylesheet" href="css/style.css">
 
 </head>
+<header>
+    <h1 style="color: darkorange;background-color: darkslategrey;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">sales statistics</h1>
+</header>
 <body>
-    <main> 
+    <main style="background-color: darksalmon;"> 
     <section id = 'cookie-stand'>
      </section>
     <div id="salmonObjects"></div>
     </main>
     <br>
     <br>
-    <main>
+    <main style="background-color: darkslategrey;">
         <form id="cookieForm">
             <fieldset>
               <legend>add new store</legend>
@@ -22,25 +25,27 @@
               <br />
               <br />
               <label for="minCustomersEachHour">minCustomersEachHour:</label>
-              <input type="text" minCustomersEachHour="minCustomersEachHour" id="minCustomersEachHour" />
+              <input type="number" minCustomersEachHour="minCustomersEachHour" id="minCustomersEachHour" />
               <br />
               <br />
               <label for="maxCustomersEachHour">maxCustomersEachHour:</label>
-              <input type="text" maxCustomersEachHour="maxCustomersEachHour" id="maxCustomersEachHour" />
+              <input type="number" maxCustomersEachHour="maxCustomersEachHour" id="maxCustomersEachHour" />
               <br />
               <br />
               <label for="avgCookiePerCustome">avgCookiePerCustome:</label>
-              <input type="text" avgCookiePerCustome="avgCookiePerCustome" id="avgCookiePerCustome" />
+              <input type="number" avgCookiePerCustome="avgCookiePerCustome" id="avgCookiePerCustome" />
               <br />
               <br />
               <input type="submit" value="add new store" />
             </fieldset>
         </form> 
+        <section id="newStore"> </section>
     </main>
     <footer>
         <script src="./js/seatlle.js"></script>
         
-        <a href="index.html"> 'go back to main page'</a>
+        <button>        <a href="index.html"> 'go back to main page'</a>
+        </button>
     </footer> 
 </body>
 </html>

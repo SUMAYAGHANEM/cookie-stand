@@ -6,6 +6,8 @@ let hours = ['6am', '7am', '8am', '9am', '10am', '11am',
 
 let footerD = [];
 
+let newS=document.getElementById('newStore');
+
 function getRandomNumber(min, max)
 {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -170,14 +172,22 @@ myForm.addEventListener('submit', addNewStore);
 function addNewStore(event) {
   event.preventDefault();
   let storePlace = event.target.place.value;
-  let minCustomer = event.target.minCustomersEachHour.value;
-  let maxCustomer = event.target.maxCustomersEachHour.value;
-  let avgCookie = event.target.avgCookiePerCustome.value;
+  console.log(storePlace);
+
+  let minCustomer = Number(event.target.minCustomersEachHour.value);
+  console.log(minCustomer);
+
+  let maxCustomer =Number(event.target.maxCustomersEachHour.value);
+  console.log(maxCustomer);
+
+  let avgCookie = Number (event.target.avgCookiePerCustome.value);
+  console.log(avgCookie);
+
   let newPlace = new City (storePlace,minCustomer,maxCustomer,avgCookie);
-  newPlace.avgCookiePerCustome();
+
+  // newPlace.avgCookiePerCustome();
   newPlace.render();
 }
-
 const seatlle = new City ( 'seatlle',23,65,6.3);
 
 seatlle.calc();
