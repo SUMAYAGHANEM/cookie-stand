@@ -4,6 +4,8 @@
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am',
   '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
+let footerD = [];
+
 function getRandomNumber(min, max)
 {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -17,6 +19,24 @@ function City (place,minCustomersEachHour,maxCustomersEachHour,avgCookiePerCusto
   this.avgCookiePerCustome=avgCookiePerCustome;
   this.customersPerHoursArray = [];
   this.cookies=[];
+  this.total =0;
+  this.totalCulomn=0;
+  this.totalOfTotal = 0 ;
+  this.sumColumn = function ( )
+  {
+    let loc =[seatlle,Tokyo,Dubai,Paris,Lima];
+    for (let i=0;i<hours.length;i++)
+    {
+      for (let j =0;j<loc.length;j++)
+      {
+        this.totalCulomn +=loc[j].cookies[i];
+      }
+      footerD.push(this.totalCulomn);
+      this.totalOfTotal=this.totalOfTotal+this.totalCulomn;
+      this.totalCulomn = 0;
+      console.log(this.totalCulomn);
+    }
+  };
 }
 
 City.prototype.calc = function ()
@@ -32,6 +52,8 @@ City.prototype.calc = function ()
     let cookiesPerHours = this.avgCookiePerCustome * this.customersPerHoursArray[i];
     this.cookies.push(Math.floor(cookiesPerHours));
   }
+
+
 };
 
 
@@ -104,16 +126,38 @@ City.prototype.render = function ()
     const tableData1 = document.createElement('td');
     tableHeaderRow1.appendChild(tableData1);
     tableData1.textContent=this.cookies[i];
+    this.total= this.total+ this.cookies[i];
+    this.totalOfTotal=this.totalOfTotal+this.totalCulomn;
+
+
   }
   const sumTableData = document.createElement('td');
   tableHeaderRow1.appendChild(sumTableData);
-  sumTableData.textContent='Total';
+  sumTableData.textContent=this.total;
 
-  // footerRow,
+};
 
-  // const footerRow = document.createElement('tr');
-  // tabelElement.appendChild(footerRow);
-  // footerRow.textContent = 
+// footerRow,
+
+City.prototype.footerRender = function()
+{
+  this.sumColumn();
+  const footerRow = document.createElement('tr');
+  tabelElement.appendChild(footerRow);
+  const tableHeader2 = document.createElement ('th');
+  footerRow.appendChild(tableHeader2);
+  tableHeader2.textContent = 'Total';
+  for(let i = 0; i<hours.length ; i++)
+  {
+    const td=document.createElement('th');
+    footerRow.appendChild(td);
+    td.textContent= footerD[i];
+
+  }
+  const td2=document.createElement('th');
+  footerRow.appendChild(td2);
+  td2.textContent= this.totalOfTotal;
+
 };
 
 
@@ -164,3 +208,5 @@ Lima.calc();
 
 Lima.render();
 console.log (Lima.cookies);
+
+seatlle.footerRender();
