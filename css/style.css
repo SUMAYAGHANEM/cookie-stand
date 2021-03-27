@@ -16,5 +16,17 @@ border: 1px solid black
       width: 100%;
       border-collapse: collapse;
   }
-      
- 
+
+  #but {
+    text-align: center;
+  }
+  #list {
+   margin-left: 400px;
+  }
+  #list li {
+    margin-left: 35px;
+  }
+
+ #but2{
+  text-align: center;
+ }
